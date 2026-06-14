@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %} {{ lesson.title }} | Django基礎トレーニング {% endblock %}
+
+{% block content %}
+<div class="lesson-detail-page">
+  <div class="lesson-top-panel">
+    <a class="back-link" href="{% url 'practice:lesson_list' %}">← 練習一覧へ戻る</a>
+    <p class="eyebrow">Lesson {{ lesson.order }} / {{ lesson.concept }}</p>
+    <h1>{{ lesson.title }}</h1>
+    <p class="muted">{{ lesson.summary }}</p>
+
+    {% if feedback %}
+      <div class="feedback {% if is_correct %}success{% else %}retry{% endif %}">
+        {{ feedback }}
+      </div>
+      {% if pattern_errors %}
+        <div class="pattern-note">
+          <p>まだ確認できていない条件があります。問題文を見ながら、必要なコード要素を追加してください。</p>
+        </div>
+      {% endif %}
+    {% elif is_completed %}
+      <div class="feedback success">このレッスンは完了済みです。</div>
+    {% endif %}
+
+    <div class="instruction-box">
+      <h2>詳細</h2>
+      <p>{{ lesson.explanation|linebreaksbr }}</p>
+    </div>
+
+    <div class="instruction-box">
+      <h2>練習内容</h2>
+      <p>{{ lesson.practice_task|linebreaksbr }}</p>
+    </div>
+  </div>
+
+  <form method="post" class="practice-workspace">
+    {% csrf_token %}
+
+    <div class="code-write-panel">
+      <p class="form-label">コードを書く</p>
+      {{ form.code }}
+      {% if form.code.errors %}
+        <div class="form-error">{{ form.code.errors }}</div>
+      {% endif %}
+    </div>
+
+    <div class="action-panel">
+      <button class="primary-button full" type="submit">提出して確認する</button>
+
+      <div class="answer-note">
+        <h2>正解コード</h2>
+        <p>正解を確認したい場合には、開いてください。</p>
+        <details>
+          <summary>正解コードを表示</summary>
+          <pre><code>{{ expected_code }}</code></pre>
+        </details>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

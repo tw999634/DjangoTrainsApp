@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}練習一覧 | Django基礎トレーニング{% endblock %}
+
+{% block content %}
+<section class="dashboard-head">
+  <div>
+    <p class="eyebrow">Practice List</p>
+    <h1>練習一覧</h1>
+    <p class="muted">Djangoの重要な基礎概念を確認します。</p>
+  </div>
+  <div class="progress-box">
+    <strong>{{ completed_count }}</strong>
+    <span>/ {{ total_count }} 完了</span>
+  </div>
+</section>
+
+<section class="lesson-grid">
+  {% for lesson in lessons %}
+    <a class="lesson-card {% if lesson.id in completed_ids %}completed{% endif %}" href="{{ lesson.get_absolute_url }}">
+      <span class="lesson-order">Lesson {{ lesson.order }}</span>
+      <h2>{{ lesson.title }}</h2>
+      <p>{{ lesson.summary }}</p>
+      <p class="concept-label">{{ lesson.concept }}</p>
+      {% if lesson.id in completed_ids %}
+        <span class="badge">完了</span>
+      {% else %}
+        <span class="badge pending">未完了</span>
+      {% endif %}
+    </a>
+  {% empty %}
+    <p>練習データがありません。<code>python manage.py seed_practice_contents</code> を実行してください。</p>
+  {% endfor %}
+</section>
+{% endblock %}

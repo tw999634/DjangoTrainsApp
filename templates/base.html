@@ -1,0 +1,35 @@
+{% load static %}
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}Django基礎トレーニング{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+  </head>
+  <body>
+    
+    <header class="site-header">
+      <a class="logo" href="{% url 'practice:home' %}">Django基礎トレーニング</a>
+      <nav class="nav">
+        <a href="{% url 'practice:home' %}" class="header-button">
+          <img src="{% static 'src/home.png' %}" class="header-button-img" />トップ</a>
+        <a href="{% url 'practice:lesson_list' %}" class="header-button">
+          <img src="{% static 'src/pencil.png' %}" class="header-button-img" />練習一覧</a>
+      </nav>
+    </header>
+
+    <main class="page">
+      {% if messages %}
+        <div class="messages">
+          {% for message in messages %}
+            <p class="message {{ message.tags }}">{{ message }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% block content %}{% endblock %}
+
+    </main>
+  </body>
+</html>

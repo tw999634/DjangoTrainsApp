@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero">
+  <p class="eyebrow">Django Core Concept Practice</p>
+  <h1>コードを書きながらDjangoの基礎を学ぶ</h1>
+  <p>
+    この学習ページでは、関数ベースView、Viewクラス、テンプレート構文、formsのようなDjangoの基本を見本コードを書きながら確認します。学習内容と進捗はMySQLデータベースに保存されます。
+  </p>
+
+  <div class="hero-actions">
+    <a class="primary-button" href="{% url 'practice:lesson_list' %}">練習を始める</a>
+
+    <form method="post" action="{% url 'practice:reset_progress' %}"
+        onsubmit="return confirm('学習進捗と提出履歴をリセットします。よろしいですか？');">
+      {% csrf_token %}
+      <button class="secondary-button" type="submit">学習進捗をリセット</button>
+    </form>
+  </div>
+
+  <div class="home-progress">
+    <div>
+      <p class="progress-number">{{ completed_count }}</p>
+      <p class="progress-label">完了</p>
+    </div>
+    <div>
+      <p class="progress-number">{{ remaining_count }}</p>
+      <p class="progress-label">未完了</p>
+    </div>
+    <div>
+      <p class="progress-number">{{ total_count }}</p>
+      <p class="progress-label">全レッスン</p>
+    </div>
+  </div>
+</div>
+
+<div class="info-grid">
+  <div class="info-card">
+    <h2>学習ページの目的</h2>
+    <p>Djangoの基本文法を、練習問題を解きながら学習します。見本を参考にしながら実際にコードを書くことで、View、TemplateView、テンプレート構文、formsの使い方を段階的に学習できます。</p>
+  </div>
+  <div class="info-card">
+    <h2>使用している技術</h2>
+    <p>このページはDjangoで作成されています。学習コンテンツや進捗情報はMySQLに保存し、提出されたコードの確認には正規表現を利用しています。</p>
+  </div>
+</div>
+{% endblock %}
