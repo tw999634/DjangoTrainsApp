@@ -15,11 +15,7 @@ class PracticeContent(models.Model):
     practice_task = models.TextField("練習内容")
     starter_code = models.TextField("初期コード", blank=True)
     sample_solution = models.TextField("正解コード")
-    required_patterns = models.TextField(
-        "正解判定用パターン",
-        blank=True,
-        help_text="1行につき1つの正規表現を書きます。すべて一致した場合に正解になります。",
-    )
+    required_patterns = models.TextField("正解判定用パターン")
 
     def get_absolute_url(self):
         return reverse("practice:lesson_detail", kwargs={"slug": self.slug})

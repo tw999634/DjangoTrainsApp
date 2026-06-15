@@ -8,7 +8,7 @@ class CodePracticeForm(forms.Form):
             attrs={
                 "class": "code-editor",
                 "spellcheck": "false",
-                "rows": 20,
+                "rows": 15,
             }
         ),
     )

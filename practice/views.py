@@ -16,9 +16,8 @@ class HomeView(TemplateView):
         context = super().get_context_data(**kwargs)
 
         lessons = list(PracticeContent.objects.all().order_by("order", "id"))
-        completed_ids = set(
+        completed_ids = list(
             PracticeProgress.objects.filter(
-                content__in=lessons,
                 is_completed=True,
             ).values_list("content_id", flat=True)
         )
@@ -36,9 +35,8 @@ class LessonListView(TemplateView):
         context = super().get_context_data(**kwargs)
 
         lessons = list(PracticeContent.objects.all().order_by("order", "id"))
-        completed_ids = set(
+        completed_ids = list(
             PracticeProgress.objects.filter(
-                content__in=lessons,
                 is_completed=True,
             ).values_list("content_id", flat=True)
         )
@@ -57,6 +55,7 @@ class ResetProgressView(View):
             last_submitted_code="",
         )
         PracticeSubmission.objects.all().delete()
+        
         messages.success(request, "学習進捗をリセットしました。")
         return redirect("practice:home")
 
