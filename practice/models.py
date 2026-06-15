@@ -51,5 +51,4 @@ class PracticeSubmission(models.Model):
     )
     submitted_code = models.TextField("提出コード")
     is_correct = models.BooleanField("正解", default=False)
-    feedback = models.CharField("フィードバック", max_length=255)
 

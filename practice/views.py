@@ -127,7 +127,6 @@ class LessonDetailView(View):
                 content=content,
                 submitted_code=submitted_code,
                 is_correct=is_correct,
-                feedback=feedback,
             )
 
             progress.last_submitted_code = submitted_code
