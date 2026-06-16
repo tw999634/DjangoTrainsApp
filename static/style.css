@@ -163,15 +163,6 @@ code, pre { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospac
 .feedback { margin-top: 18px; padding: 16px; border-radius: 16px; font-weight: 800; }
 .feedback.success { background: #e8f7f1; color: var(--success); }
 .feedback.retry { background: #fff7ed; color: var(--warning); }
-.pattern-note {
-  margin: 12px 0;
-  padding: 12px 14px;
-  border: 1px solid #d8dee9;
-  border-radius: 12px;
-  background: #f8fafc;
-  color: #475569;
-  font-size: 0.95rem;
-}
 
 /* lesson page: information/answer section */
 .instruction-box, .answer-note {

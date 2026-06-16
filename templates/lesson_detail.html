@@ -14,11 +14,6 @@
       <div class="feedback {% if is_correct %}success{% else %}retry{% endif %}">
         {{ feedback }}
       </div>
-      {% if pattern_errors %}
-        <div class="pattern-note">
-          <p>まだ確認できていない条件があります。問題文を見ながら、必要なコード要素を追加してください。</p>
-        </div>
-      {% endif %}
     {% elif is_completed %}
       <div class="feedback success">このレッスンは完了済みです。</div>
     {% endif %}
