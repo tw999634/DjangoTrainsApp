@@ -1,3 +1,4 @@
+/* color palette */
 :root {
   --primary: #2563eb;
   --primary-dark: #1d4ed8;
@@ -11,6 +12,7 @@
   --card: #ffffff;
 }
 
+/* global setting */
 * { box-sizing: border-box; }
 body {
   margin: 0;
@@ -21,6 +23,9 @@ body {
 a { color: inherit; text-decoration: none; }
 code, pre { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
 
+
+
+/* navigation bar */
 .site-header {
   height: 72px;
   padding: 0 42px;
@@ -43,9 +48,10 @@ code, pre { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospac
   border-radius: 999px;
   font-weight: 800;
 }
-.header-button:hover { background: #eef4ff; }
 .header-button-img { width: 25px; height: 25px; object-fit: contain; }
+.header-button:hover { background: #eef4ff; }
 
+/* page section */
 .page { max-width: 1180px; margin: 0 auto; padding: 34px 22px 70px; }
 .hero, .dashboard-head, .lesson-card, .lesson-top-panel, .code-write-panel, .action-panel, .info-card {
   background: var(--card);
@@ -53,9 +59,20 @@ code, pre { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospac
   border-radius: 28px;
   box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
 }
+
+/* reset message */
+.messages { margin-bottom: 18px; }
+.message { padding: 14px 18px; border-radius: 16px; background: #eef4ff; color: var(--primary); font-weight: 800; }
+.message.success { background: #e8f7f1; color: var(--success); }
+
+
+
+/* top page */
 .hero { padding: 44px; }
 .eyebrow { color: var(--primary); font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
 .muted { color: var(--muted); line-height: 1.7; }
+
+/* top page: buttons */
 .primary-button, .secondary-button {
   display: inline-flex;
   align-items: center;
@@ -81,6 +98,8 @@ code, pre { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospac
   margin-top: 22px;
 }
 .hero-actions form { margin: 0; }
+
+/* top page: number section */
 .home-progress {
   display: flex;
   gap: 16px;
@@ -106,41 +125,41 @@ code, pre { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospac
   color: var(--muted);
   font-weight: 800;
 }
+
+/* top page: information section */
 .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 22px; }
 .info-card { padding: 24px; }
 
-.messages { margin-bottom: 18px; }
-.message { padding: 14px 18px; border-radius: 16px; background: #eef4ff; color: var(--primary); font-weight: 800; }
-.message.success { background: #e8f7f1; color: var(--success); }
 
+
+/* list page: dashboard section */
 .dashboard-head { padding: 28px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; }
 .dashboard-head h1 { margin: 6px 0; }
 .progress-box { border: 2px solid var(--primary); border-radius: 20px; padding: 20px 26px; text-align: center; }
 .progress-box strong { display: block; font-size: 2.2rem; color: var(--primary); }
+
+/* list page: lesson list section */
 .lesson-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
 .lesson-card { padding: 24px; transition: transform .15s ease, border-color .15s ease; }
 .lesson-card:hover { transform: translateY(-3px); border-color: var(--primary); }
 .lesson-card.completed { border-color: var(--success); }
 .lesson-order { color: var(--primary); font-weight: 800; }
 .concept-label { color: var(--muted); font-size: .9rem; font-weight: 800; }
+
+/* list page: complete badge */
 .badge { display: inline-flex; margin-top: 12px; padding: 6px 12px; border-radius: 999px; background: #e8f7f1; color: var(--success); font-weight: 800; }
 .badge.pending { background: #fff7ed; color: var(--warning); }
 
+
+
+/* lesson page */
 .lesson-detail-page { display: grid; gap: 22px; }
+
+/* lesson page: title section */
 .lesson-top-panel { padding: 28px; }
 .back-link { color: var(--primary); font-weight: 800; }
-.instruction-box, .answer-note {
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  padding: 18px;
-  margin-top: 18px;
-  background: #fbfcff;
-}
-.answer-note { margin-top: 16px; }
-.answer-note summary { cursor: pointer; font-weight: 800; color: var(--primary); }
-.practice-workspace { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(260px, .75fr); gap: 22px; align-items: start; }
-.code-write-panel, .action-panel { padding: 28px; }
-.form-label { margin: 0 0 10px; font-weight: 900; }
+
+/* lesson page: feedback section */
 .feedback { margin-top: 18px; padding: 16px; border-radius: 16px; font-weight: 800; }
 .feedback.success { background: #e8f7f1; color: var(--success); }
 .feedback.retry { background: #fff7ed; color: var(--warning); }
@@ -153,6 +172,30 @@ code, pre { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospac
   color: #475569;
   font-size: 0.95rem;
 }
+
+/* lesson page: information/answer section */
+.instruction-box, .answer-note {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 18px;
+  margin-top: 18px;
+  background: #fbfcff;
+}
+.answer-note { margin-top: 16px; }
+.answer-note summary { cursor: pointer; font-weight: 800; color: var(--primary); }
+pre {
+  overflow-x: auto;
+  padding: 14px;
+  border-radius: 14px;
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+/* lesson page: code section */
+.practice-workspace { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(260px, .75fr); gap: 22px; align-items: start; }
+.code-write-panel, .action-panel { padding: 28px; }
+.form-label { margin: 0 0 10px; font-weight: 900; }
+
 .code-editor {
   width: 100%;
   min-height: 560px;
@@ -168,18 +211,3 @@ code, pre { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospac
   resize: vertical;
 }
 .form-error { color: var(--danger); margin-bottom: 12px; }
-pre {
-  overflow-x: auto;
-  padding: 14px;
-  border-radius: 14px;
-  background: #0f172a;
-  color: #e5e7eb;
-}
-
-@media (max-width: 860px) {
-  .site-header { padding: 0 20px; }
-  .dashboard-head, .info-grid, .lesson-grid, .practice-workspace { grid-template-columns: 1fr; }
-  .dashboard-head { display: block; }
-  .progress-box { margin-top: 18px; }
-  .hero { padding: 32px; }
-}

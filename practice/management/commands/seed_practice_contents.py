@@ -12,7 +12,7 @@ LESSONS = [{'slug': 'function-view-render-basic',
   'practice_task': 'home関数を完成させてください。\n'
                    '\n'
                    '必要な条件:\n'
-                   '1. render()でpractice/home.htmlを返す。',
+                   '1. render()でrequestと"practice/home.html"を返す。',
   'starter_code': 'from django.shortcuts import render\n\n\ndef home(request):\n    pass\n',
   'sample_solution': 'from django.shortcuts import render\n'
                      '\n'
